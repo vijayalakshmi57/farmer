@@ -1,0 +1,95 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "apphosting": {
+      "port": 6302,
+      "rootDirectory": "vijaya"
+    },
+    "auth": {
+      "port": 6302
+    },
+    "firestore": {
+      "port": 6302
+    },
+    "database": {
+      "port": 9000
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "storage": {
+      "port": 9199
+    },
+    "dataconnect": {
+      "port": 9399
+    },
+    "ui": {
+      "enabled": true,
+      "port": 6302
+    },
+    "singleProjectMode": true
+  },
+  "dataconnect": {
+    "source": "dataconnect"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "farm-ec422",
+          "appId": "1:444792770322:android:e32abd52352c2edcbeadcb",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "farm-ec422",
+          "configurations": {
+            "android": "1:444792770322:android:e32abd52352c2edcbeadcb",
+            "ios": "1:444792770322:ios:65cbdd9ce8ea21c9beadcb",
+            "macos": "1:444792770322:ios:65cbdd9ce8ea21c9beadcb",
+            "web": "1:444792770322:web:472e46b334af368abeadcb",
+            "windows": "1:444792770322:web:3c35a6964ba474cdbeadcb"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}
